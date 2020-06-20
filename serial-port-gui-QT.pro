@@ -1,4 +1,5 @@
 QT       += core gui
+QT += serialport  # прям из документации скопировал
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
