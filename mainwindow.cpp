@@ -67,7 +67,7 @@ void MainWindow::on_pushButton_clicked()
             // и мы хотим считать все что отправилось
         }
         ui->txtOutput->append(data);
-        ui->txtOutput->append("empty R ");
+        //ui->txtOutput->append("empty R ");
         // ну и закрываем порт
         serialPort.close();
 
@@ -97,7 +97,32 @@ void MainWindow::on_pushButton_2_clicked()
         }
 
         ui->txtOutput->append(data);
-        ui->txtOutput->append("empty B ");
+        //ui->txtOutput->append("empty B ");
 
+        serialPort.close();
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    QSerialPort serialPort;
+
+        serialPort.setPortName(this->ui->txtPort->text());
+        serialPort.setBaudRate(QSerialPort::Baud9600);
+
+        if (!serialPort.open(QIODevice::ReadWrite)) {
+            QMessageBox::warning(this, "Ошибка", "Не удалось подключится к порту");
+            return;
+        }
+
+        serialPort.write("p"); // меняем тут на p
+        serialPort.waitForBytesWritten();
+
+        QByteArray data;
+        while (serialPort.waitForReadyRead(10)) {
+            data.append(serialPort.readAll());
+        }
+        int light_int;
+        ui->txtLight->setText(data); // тут вставляем значение в txtLight
+        ui->txtLight->setText("15");
         serialPort.close();
 }

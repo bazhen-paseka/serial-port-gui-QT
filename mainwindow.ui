@@ -76,7 +76,7 @@
      <string>Освещенность</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="txtLight">
     <property name="geometry">
      <rect>
       <x>150</x>
