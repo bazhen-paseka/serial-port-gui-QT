@@ -33,22 +33,18 @@ void MainWindow::on_pushButton_clicked()
     // создали экземпляр для общения по последовательному порту
         QSerialPort serialPort;
 
-        // указали имя к какому порту будем подключаться
-        serialPort.setPortName(this->ui->txtPort->text());
-        // указали скорость
-        serialPort.setBaudRate(QSerialPort::Baud9600);
-                serialPort.setParity(QSerialPort::NoParity);
 
-        // пробуем подключится
+        serialPort.setPortName(this->ui->txtPort->text());          // указали имя к какому порту будем подключаться
+        serialPort.setBaudRate(QSerialPort::Baud9600);
+
         if (!serialPort.open(QIODevice::ReadWrite)) {
             // если подключится не получится, то покажем сообщение с ошибкой
             QMessageBox::warning(this, "Ошибка", "Не удалось подключится к порту");
             return;
         }
 
-        // отправляем строку с b нашей арудинкой
         serialPort.write("r"); // очень важно, что именно двойные кавычки
-        //serialPort.waitForBytesWritten(); // ждем пока дойдет
+        serialPort.waitForBytesWritten(); // ждем пока дойдет
 
         // и не знаю с чем тут связано, но, чтобы сообщение дошло
         // надо обязательно прочитать не пришло ли нам чего в ответ
@@ -67,8 +63,6 @@ void MainWindow::on_pushButton_clicked()
             // и мы хотим считать все что отправилось
         }
         ui->txtOutput->append(data);
-        //ui->txtOutput->append("empty R ");
-        // ну и закрываем порт
         serialPort.close();
 
 }
@@ -80,8 +74,6 @@ void MainWindow::on_pushButton_2_clicked()
 
         serialPort.setPortName(this->ui->txtPort->text());
         serialPort.setBaudRate(QSerialPort::Baud9600);
-        serialPort.setParity(QSerialPort::NoParity);
-        serialPort.setStopBits(QSerialPort::OneStop);
 
         if (!serialPort.open(QIODevice::ReadWrite)) {
             QMessageBox::warning(this, "Ошибка", "Не удалось подключится к порту");
@@ -97,8 +89,6 @@ void MainWindow::on_pushButton_2_clicked()
         }
 
         ui->txtOutput->append(data);
-        //ui->txtOutput->append("empty B ");
-
         serialPort.close();
 }
 
@@ -121,8 +111,34 @@ void MainWindow::on_pushButton_3_clicked()
         while (serialPort.waitForReadyRead(10)) {
             data.append(serialPort.readAll());
         }
-        int light_int;
+
+        //ui->txtOutput->append(data);
         ui->txtLight->setText(data); // тут вставляем значение в txtLight
-        ui->txtLight->setText("15");
+        serialPort.close();
+}
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    //  QMessageBox::information(this, "Сообщение BLUE", "Ура! Нажали кнопку 2!");
+    QSerialPort serialPort;
+
+        serialPort.setPortName(this->ui->txtPort->text());
+        serialPort.setBaudRate(QSerialPort::Baud9600);
+
+        if (!serialPort.open(QIODevice::ReadWrite)) {
+            QMessageBox::warning(this, "Ошибка", "Не удалось подключится к порту");
+            return;
+        }
+
+        serialPort.write("e");
+        serialPort.waitForBytesWritten();
+
+        QByteArray data;
+        while (serialPort.waitForReadyRead(100)) {
+            data.append(serialPort.readAll());
+        }
+
+        ui->txtOutput->append(data);
+        //ui->txtLight->setText(data); // тут вставляем значение в txtLight
         serialPort.close();
 }
