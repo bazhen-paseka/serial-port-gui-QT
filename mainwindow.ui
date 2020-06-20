@@ -99,7 +99,7 @@
      <string>Refresh</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit">
+   <widget class="QTextEdit" name="txtOutput">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -107,6 +107,12 @@
       <width>341</width>
       <height>281</height>
      </rect>
+    </property>
+    <property name="documentTitle">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string/>
     </property>
    </widget>
   </widget>
