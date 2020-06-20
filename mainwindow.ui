@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>447</width>
+    <height>429</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>31</x>
+      <y>21</y>
+      <width>108</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>указать СОМ-порт</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txtPort">
+    <property name="geometry">
+     <rect>
+      <x>146</x>
+      <y>21</y>
+      <width>137</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>32</x>
+      <y>61</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>On</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>132</x>
+      <y>61</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Off</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>31</x>
+      <y>111</y>
+      <width>87</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Освещенность</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txtLight">
+    <property name="geometry">
+     <rect>
+      <x>125</x>
+      <y>114</y>
+      <width>137</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>110</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Refresh</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="txtOutput">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>150</y>
+      <width>341</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="documentTitle">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_4">
+    <property name="geometry">
+     <rect>
+      <x>232</x>
+      <y>61</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Error</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>447</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuhttps_github_com_bazhen_paseka_serial_port_gui_QT">
+    <property name="title">
+     <string>Serial-port-gui-QT</string>
+    </property>
+   </widget>
+   <addaction name="menuhttps_github_com_bazhen_paseka_serial_port_gui_QT"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
